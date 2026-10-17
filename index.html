@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="dark" />
     <meta name="theme-color" content="#05060a" />
-    <title>Codescape — a screensaver for your source code</title>
+    <title>Codescape — understand any codebase’s architecture</title>
     <meta
       name="description"
-      content="Point Codescape at any public GitHub repo and watch it grow as 3D pipes, fly past as a starfield, or ribbon across the screen like Mystify."
+      content="Point Codescape at any public GitHub repo: it maps the modules, their dependencies and cycles, and draws them as classic Microsoft screensavers."
     />
     <meta property="og:title" content="Codescape" />
-    <meta property="og:description" content="A screensaver for your source code." />
+    <meta property="og:description" content="Understand any codebase’s architecture, drawn as a 90s screensaver." />
     <link rel="icon" href="https://andreibautin.github.io/codescape/icons/icon-192.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
@@ -313,18 +313,20 @@
         >
         <div class="links">
           <a href="#modes">Modes</a>
+          <a href="#how">How it works</a>
           <a href="#try">Try a repo</a>
           <a href="https://github.com/AndreiBautin/codescape">Source</a>
         </div>
       </nav>
 
       <header>
-        <div class="eyebrow">A screensaver for your source code</div>
-        <h1>Your codebase,<br />as a 1998 screensaver.</h1>
+        <div class="eyebrow">Understand any codebase's architecture</div>
+        <h1>See how a codebase<br />fits together.</h1>
         <p class="lede">
-          Point Codescape at any public GitHub repo and watch it grow as glossy 3D pipes, fly
-          past as a starfield, or ribbon across the screen like Mystify — rebuilt with a modern
-          glass UI. Free, installable, no server, no sign-in.
+          Point Codescape at any public GitHub repo. It reads the imports, works out which modules
+          depend on which, flags dependency cycles, and draws it as a classic Microsoft
+          screensaver — pipes, starfields, Mystify — with the dependencies flowing between them.
+          Free, installable, no server, no sign-in.
         </p>
         <div class="cta">
           <a class="btn primary" href="https://andreibautin.github.io/codescape/">Launch Codescape</a>
@@ -336,20 +338,22 @@
             src="https://andreibautin.github.io/codescape/?repo=AndreiBautin/codescape&mode=pipes&seed=7"
             loading="eager"
           ></iframe>
-          <span class="label">live · Codescape rendering its own repo</span>
+          <span class="label">live · Codescape mapping its own architecture</span>
         </div>
       </header>
 
       <section id="modes">
-        <h2>Three screensavers, one tree</h2>
+        <h2>Six screensavers, one architecture</h2>
         <p class="sub">
-          The repo is parsed into a folder tree once; each mode is a different way of drawing it.
+          The repo becomes a folder tree and an import graph once; each mode draws both. Click
+          anything to see its layer, what it depends on and what uses it; double-click a folder
+          to go inside.
         </p>
         <div class="modes">
-          <a class="card" href="https://andreibautin.github.io/codescape/?repo=facebook/react&mode=pipes">
+          <a class="card" href="https://andreibautin.github.io/codescape/?repo=AndreiBautin/codescape&mode=pipes">
             <div class="thumb">
               <iframe
-                title="Pipes"
+                title="3D Pipes"
                 loading="lazy"
                 tabindex="-1"
                 src="https://andreibautin.github.io/codescape/?demo=1&mode=pipes&seed=3"
@@ -357,10 +361,10 @@
             </div>
             <div class="body">
               <h3>3D Pipes</h3>
-              <p>A pipe per top-level folder, a branch per subfolder, a joint per file.</p>
+              <p>A pipe per folder, a joint per file. Glowing arcs carry each module’s imports.</p>
             </div>
           </a>
-          <a class="card" href="https://andreibautin.github.io/codescape/?repo=facebook/react&mode=starfield">
+          <a class="card" href="https://andreibautin.github.io/codescape/?repo=AndreiBautin/codescape&mode=starfield">
             <div class="thumb">
               <iframe
                 title="Starfield"
@@ -371,10 +375,10 @@
             </div>
             <div class="body">
               <h3>Starfield</h3>
-              <p>Every file is a star, coloured by language, brighter the more lines it has.</p>
+              <p>Every file is a star coloured by language; stars that import each other link up.</p>
             </div>
           </a>
-          <a class="card" href="https://andreibautin.github.io/codescape/?repo=facebook/react&mode=mystify">
+          <a class="card" href="https://andreibautin.github.io/codescape/?repo=AndreiBautin/codescape&mode=mystify">
             <div class="thumb">
               <iframe
                 title="Mystify"
@@ -385,9 +389,74 @@
             </div>
             <div class="body">
               <h3>Mystify</h3>
-              <p>The biggest folders become bouncing polygons; size sets their speed.</p>
+              <p>The biggest folders become ribbons, with dependency flows between them.</p>
             </div>
           </a>
+          <a class="card" href="https://andreibautin.github.io/codescape/?repo=AndreiBautin/codescape&mode=windows">
+            <div class="thumb">
+              <iframe
+                title="Flying Windows"
+                loading="lazy"
+                tabindex="-1"
+                src="https://andreibautin.github.io/codescape/?demo=1&mode=windows&seed=3"
+              ></iframe>
+            </div>
+            <div class="body">
+              <h3>Flying Windows</h3>
+              <p>Files fly out as little documents, strung together by what they import.</p>
+            </div>
+          </a>
+          <a class="card" href="https://andreibautin.github.io/codescape/?repo=AndreiBautin/codescape&mode=beziers">
+            <div class="thumb">
+              <iframe
+                title="Beziers"
+                loading="lazy"
+                tabindex="-1"
+                src="https://andreibautin.github.io/codescape/?demo=1&mode=beziers&seed=3"
+              ></iframe>
+            </div>
+            <div class="body">
+              <h3>Beziers</h3>
+              <p>Each module is a silky curve; red flows mark a dependency cycle.</p>
+            </div>
+          </a>
+          <a class="card" href="https://andreibautin.github.io/codescape/?repo=AndreiBautin/codescape&mode=flowerbox">
+            <div class="thumb">
+              <iframe
+                title="3D Flower Box"
+                loading="lazy"
+                tabindex="-1"
+                src="https://andreibautin.github.io/codescape/?demo=1&mode=flowerbox&seed=3"
+              ></iframe>
+            </div>
+            <div class="body">
+              <h3>3D Flower Box</h3>
+              <p>A petal per folder and big file; arcs wrap the modules that depend on each other.</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section id="how">
+        <h2>What it reads</h2>
+        <div class="grid2">
+          <div class="panel">
+            <h3>Layers and cycles</h3>
+            <p>
+              Imports are resolved for TypeScript/JavaScript, Python, Go, Rust, C/C++ and
+              Java/Kotlin, then rolled up to modules. Each module is classed as
+              <b>entry</b>, <b>core</b> or <b>foundation</b> by the direction of its
+              dependencies, and modules that depend on each other in a loop are flagged as cycles.
+            </p>
+          </div>
+          <div class="panel">
+            <h3>Honest about coverage</h3>
+            <p>
+              Big repos are sampled: up to 700 source files are read, and the inspector says how
+              many. Imports are matched with per-language patterns rather than full parsers, so
+              it errs toward missing an edge rather than guessing at one.
+            </p>
+          </div>
         </div>
       </section>
 
